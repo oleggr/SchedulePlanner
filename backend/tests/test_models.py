@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from scheduler.models import Strategy1
+from scheduler.models import Strategy1Model
 
 
 strategy1_correct_dataset = [
@@ -73,10 +73,10 @@ strategy1_incorrect_dataset = [
 
 @pytest.mark.parametrize("data", strategy1_correct_dataset)
 def test_strategy_1_correct_model(data):
-    Strategy1(**data)
+    Strategy1Model(**data)
 
 
 @pytest.mark.parametrize("data", strategy1_incorrect_dataset)
 def test_strategy_1_incorrect_model(data):
     with pytest.raises(ValidationError):
-        Strategy1(**data)
+        Strategy1Model(**data)

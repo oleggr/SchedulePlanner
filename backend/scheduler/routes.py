@@ -1,7 +1,8 @@
 from starlette import status
 from fastapi import APIRouter, Request, status, HTTPException
 
-from scheduler.models import Strategy1
+from scheduler.models import Strategy1Model, Strategy1ResponseModel
+from scheduler.schedule import Strategy1Planner
 
 
 router = APIRouter()
@@ -19,10 +20,12 @@ async def hello():
 @router.post(
     "/strategy/1",
     name='dev:find-schedule-by-strategy-1',
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    response_model=Strategy1ResponseModel
 )
-async def find_schedule_by_strategy_1(data: Strategy1):
-    return "strategy 1!"
+async def find_schedule_by_strategy_1(data: Strategy1Model):
+    planner = Strategy1Planner(data)
+    return planner.path_find()
 
 
 @router.post(
