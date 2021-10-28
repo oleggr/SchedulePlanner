@@ -1,0 +1,10 @@
+alembic~=1.6.5
+fastapi~=0.68.0
+uvicorn~=0.14.0
+psycopg2~=2.9.1
+pydantic~=1.8.2
+pytest~=6.2.4
+requests~=2.26.0
+starlette_exporter~=0.10.0
+sqlalchemy~=1.4.22
+sqlalchemy_utils~=0.37.8
