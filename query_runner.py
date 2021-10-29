@@ -1,8 +1,10 @@
-#!/usr/bin/python3
+#!/Users/o.gritchin/dev/github/SchedulePlanner/venv/bin/python3
 
 import json
 import requests
 from argparse import ArgumentParser
+
+from pathfinding.core.grid import Grid
 
 
 API_HOST = 'http://localhost:8000/api'
@@ -21,7 +23,9 @@ def callback_strategy_1(arguments):
         'end_x': 5
     }
     r = requests.post(API_HOST + STRATEGY_1_PATH, json=data)
-    print(r.json())
+    res = r.json()
+    grid = Grid(matrix=res['result'])
+    print(grid.grid_str())
 
 
 def callback_strategy_2(arguments):
