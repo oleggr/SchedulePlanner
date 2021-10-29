@@ -29,9 +29,9 @@ python3 -m pip pytest -v
 
 ### Routes
 ```
-GET    /hello            Basic get endpoint
+GET    /api/hello        Basic get endpoint
 POST   /api/strategy/1   Plan schedule by Strategy 1
-                            - Require: {
+                            - body: {
                                 field: [[int], [int], ...]
                                 end_x: int
                               }
