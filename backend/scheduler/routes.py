@@ -25,7 +25,7 @@ async def hello():
 )
 async def find_schedule_by_strategy_1(data: Strategy1Model):
     planner = Strategy1Planner(data)
-    return planner.path_find()
+    return {'result': planner.get_schedule()}
 
 
 @router.post(

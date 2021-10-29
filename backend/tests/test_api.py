@@ -1,6 +1,8 @@
 import pytest
 from fastapi.testclient import TestClient
 
+from scheduler.models import Strategy1ResponseModel
+
 
 strategy1_input = [
     pytest.param(
@@ -11,15 +13,14 @@ strategy1_input = [
                 [0, 1, 1, 1, 0, 0],
                 [0, 0, 1, 0, 0, 0],
             ],
-            'start_x': 0,
             'end_x': 5
         },
-        [
+        Strategy1ResponseModel(result=[
             [0, 0, 0, 0, 0, 0],
             [1, 1, 1, 1, 1, 1],
             [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0]
-        ],
+        ]),
         id='Forward path'
     )
 ]
@@ -35,7 +36,7 @@ def test_hello_endpoint(client: TestClient):
 def test_strategy_1_endpoint(client: TestClient, data, expected):
     response = client.post('/api/strategy/1', json=data)
     assert response.status_code == 200
-    assert response.json() == {'result': 'strategy 1!'}
+    assert response.json() == expected
 
 
 def test_strategy_2_endpoint(client: TestClient):

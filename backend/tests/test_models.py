@@ -13,7 +13,6 @@ strategy1_correct_dataset = [
                 [0, 1, 1, 1, 0, 0],
                 [0, 0, 1, 0, 0, 0],
             ],
-            'start_x': 0,
             'end_x': 5
         },
     ),
@@ -24,7 +23,6 @@ strategy1_correct_dataset = [
                 [0, 0, 0],
                 [0, 1, 1],
             ],
-            'start_x': 0,
             'end_x': 2
         },
     )
@@ -39,22 +37,9 @@ strategy1_incorrect_dataset = [
                 [0, 1, 1, 1, 0, 0],
                 [0, 0, 1, 0, 0, 0],
             ],
-            'start_x': 0,
             'end_x': 10
         },
         id='end_x bigger then right border'
-    ),
-    pytest.param(
-        {
-            'field': [
-                [0, 1, 0],
-                [0, 0, 0],
-                [0, 1, 1],
-            ],
-            'start_x': -1,
-            'end_x': 2
-        },
-        id='start_x smaller then zero',
     ),
     pytest.param(
         {
@@ -63,7 +48,6 @@ strategy1_incorrect_dataset = [
                 [0, 'a', 0, 0],
                 [0, 1, 1, 1],
             ],
-            'start_x': 0,
             'end_x': 3
         },
         id='one of numbers is string ',

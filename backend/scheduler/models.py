@@ -4,10 +4,9 @@ from pydantic import BaseModel, validator
 
 class Strategy1Model(BaseModel):
     field: List[List[int]]
-    start_x: int
     end_x: int
 
-    @validator('start_x', 'end_x')
+    @validator('end_x')
     def check_start(cls, v, values, **kwargs):
         if 'field' in values and not (0 <= v < len(values['field'][0])):
             raise ValueError(
@@ -18,5 +17,4 @@ class Strategy1Model(BaseModel):
 
 
 class Strategy1ResponseModel(BaseModel):
-    result: str
-    # result: List[List[int]]
+    result: List[List[int]]
