@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './App.css';
 import Grid from "./components/grid";
 
@@ -13,6 +13,7 @@ function App() {
   const [inputRows, setRows] = useState(grid.rows);
 
   const handleGridSize = () => {
+    // TODO: fix grid resize
     const res = {
       cells: parseInt(inputCells),
       rows: parseInt(inputRows)
