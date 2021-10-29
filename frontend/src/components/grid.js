@@ -1,5 +1,4 @@
 import React from 'react';
-import './grid.css';
 
 const Grid = ({
   grid,
@@ -9,10 +8,12 @@ const Grid = ({
   inputRows,
   setRows,
 }) => {
-  const cells = new Array(grid.cells).fill(0);
-  const rows = new Array(grid.rows).fill(0);
+  const field = new Array(grid.rows).fill(new Array(grid.cells).fill(0));
+
+  
 
   const handleClick = (e) => {
+    console.log(this);
     const item = e.target;
     if (item.classList.contains('selected')) {
       item.classList.remove('selected');
@@ -21,21 +22,36 @@ const Grid = ({
     }
   };
 
+  const sendToBackend = (e) => {
+    console.log("send data to host:")
+    console.log(field)
+  }
+
   return (
-    <main>
-      <div class="main">
-        <h1>SchedulePlanner</h1>
-        
-        {rows.map((row, index) => (
-          <ul className="row" key={index}>
-            {cells.map((cell, index) => (
-              <li key={index} className="item" onClick={handleClick} />
-            ))}
+  
+    <div className="main">
+      <div className="map">
+        {field.map((field_row, index_row) => (
+          <ul className="row" key={index_row}>
+            {field_row.map((cell, index_cell) => {
+              if(cell) {
+                return <li key={index_cell} className="item selected" custom_x={index_cell} onClick={handleClick.bind(this)}/>
+              } else {
+                return <li key={index_cell} className="item" onClick={handleClick.bind(this)}/>
+              }
+            })}
           </ul>
         ))}
+      </div>
+
+      <div className="settings">
+        <h1>SchedulePlanner</h1>
 
         <div>
           <label htmlFor="cells">Define cells in the row</label>
+        </div>
+
+        <div>
           <input
             type="text"
             placeholder="Define cells in the row"
@@ -45,8 +61,11 @@ const Grid = ({
           />
         </div>
 
+
         <div>
           <label htmlFor="rows">Define rows</label>
+        </div>
+        <div>
           <input
             type="text"
             placeholder="Define rows"
@@ -57,13 +76,17 @@ const Grid = ({
         </div>
 
         <button onClick={handleGridSize}>Change Grid</button>
-
-        <div>
-          <a href='https://github.com/oleggr/SchedulePlanner'>github</a>
-        </div>
-
+        <button onClick={sendToBackend}>Find Schedule</button>
+        
+        <a 
+          className="btn" 
+          href='https://github.com/oleggr/SchedulePlanner' 
+          target="_blank" 
+          rel="noreferrer"
+          >Github</a>
       </div>
-    </main>
+
+    </div>
   );
 };
 

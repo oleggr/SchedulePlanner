@@ -1,15 +1,15 @@
-.app {
+div.App {
   font-family: sans-serif;
   text-align: center;
 }
 
-.app {
+div.App {
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   overflow: hidden;
   color: #000000;
+  background-color: lightcyan;
   font-size: 13px;
   line-height: 1;
 }
@@ -32,6 +32,28 @@ button {
 }
 
 button:hover {
+  background-color: black;
+  color: white;
+}
+
+
+.btn {
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 40px;
+  line-height: 1;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 20px auto;
+  outline: none;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
   background-color: black;
   color: white;
 }
@@ -63,11 +85,24 @@ dd {
   list-style: none;
 }
 
-main {
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+div.main {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+div.map {
+  justify-self: flex-start;
+  align-self: center;
+  width: 100%;
+}
+
+div.settings {
+  justify-self: flex-start;
+  width: 30%;
+  padding-right: 20px;
+  padding-top: 40px;
 }
 
 h1 {
