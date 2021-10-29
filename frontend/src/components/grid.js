@@ -10,10 +10,7 @@ const Grid = ({
 }) => {
   const field = new Array(grid.rows).fill(new Array(grid.cells).fill(0));
 
-  
-
   const handleClick = (e) => {
-    console.log(this);
     const item = e.target;
     if (item.classList.contains('selected')) {
       item.classList.remove('selected');
@@ -35,9 +32,9 @@ const Grid = ({
           <ul className="row" key={index_row}>
             {field_row.map((cell, index_cell) => {
               if(cell) {
-                return <li key={index_cell} className="item selected" custom_x={index_cell} onClick={handleClick.bind(this)}/>
+                return <li key={index_cell} className="item selected" custom_x={index_cell} onClick={handleClick}/>
               } else {
-                return <li key={index_cell} className="item" onClick={handleClick.bind(this)}/>
+                return <li key={index_cell} className="item" onClick={handleClick}/>
               }
             })}
           </ul>
