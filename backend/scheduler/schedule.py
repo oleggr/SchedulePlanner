@@ -46,14 +46,16 @@ class Strategy1Planner(BasicPlanner):
             diagonal_movement=DiagonalMovement.always,
             time_limit=10
         )
-        path, runs = route.find_path(start, end, grid)
+        # path, runs = route.find_path(start, end, grid)
         # print('operations:', runs, 'path length:', len(path))
         # print(grid.grid_str(path=path, start=start, end=end))
+        # print(path)
 
         schedule, curr_rate = [
             [0, 0, 0, 0, 0, 0],
-            [1, 1, 1, 1, 1, 1],
-            [0, 0, 0, 0, 0, 0],
+            [1, 1, 0, 0, 0, 0],
+            [0, 0, 1, 1, 1, 1],
             [0, 0, 0, 0, 0, 0]
         ], 2
+
         return schedule, curr_rate
