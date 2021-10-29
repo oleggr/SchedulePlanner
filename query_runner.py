@@ -63,7 +63,7 @@ def setup_parser(parser):
 def main():
     """Main method"""
     parser = ArgumentParser(
-        description="Inverted Index CLI - tool to build, dump, load and query inverted index"
+        description="CLI Interface for schedule planner."
     )
     setup_parser(parser)
     arguments = parser.parse_args()
