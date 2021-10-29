@@ -8,3 +8,4 @@ requests~=2.26.0
 starlette_exporter~=0.10.0
 sqlalchemy~=1.4.22
 sqlalchemy_utils~=0.37.8
+pathfinding
