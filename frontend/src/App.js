@@ -19,14 +19,6 @@ function App() {
   const [inputCells, setCells] = useState(grid.cells);
   const [inputRows, setRows] = useState(grid.rows);
 
-  const handleGridSize = () => {
-    // TODO: fix grid resize
-    const res = {
-      cells: parseInt(inputCells),
-      rows: parseInt(inputRows)
-    };
-  };
-
   return (
     <div className="App">        
         <Grid
