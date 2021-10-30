@@ -3,9 +3,16 @@ import './App.css';
 import Grid from "./components/grid";
 
 function App() {
+  const queryParams = new URLSearchParams(window.location.search);
+  
+  var cells_num = queryParams.get('cells');
+  cells_num = cells_num ? parseInt(cells_num) : 5;
+  var rows_num = queryParams.get('rows');
+  rows_num = rows_num ? parseInt(rows_num) : 5;
+
   const gridBase = {
-    cells: 5,
-    rows: 5
+    cells: cells_num,
+    rows: rows_num
   };
 
   const [grid, setGrid] = useState(gridBase);
@@ -18,14 +25,12 @@ function App() {
       cells: parseInt(inputCells),
       rows: parseInt(inputRows)
     };
-    setGrid({ ...res });
   };
 
   return (
     <div className="App">        
         <Grid
           grid={grid}
-          handleGridSize={handleGridSize}
           inputCells={inputCells}
           inputRows={inputRows}
           setCells={setCells}

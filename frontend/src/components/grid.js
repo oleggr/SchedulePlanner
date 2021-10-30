@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const Grid = ({
   grid,
-  handleGridSize,
   inputCells,
   setCells,
   inputRows,
@@ -42,6 +41,8 @@ const Grid = ({
         console.log(error);
       });
   }
+
+  var changeGridLink = "http://localhost:3000/?cells=" + inputCells + "&rows=" + inputRows 
 
   return (
   
@@ -91,7 +92,11 @@ const Grid = ({
           />
         </div>
 
-        <button onClick={handleGridSize}>Change Grid</button>
+        <a 
+          className="btn" 
+          href={changeGridLink}
+          >Change Grid</a>
+
         <button onClick={sendToBackend}>Find Schedule</button>
         
         <a 
