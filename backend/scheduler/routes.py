@@ -23,7 +23,10 @@ async def hello():
     status_code=status.HTTP_200_OK,
     response_model=Strategy1ResponseModel
 )
-async def find_schedule_by_strategy_1(data: Strategy1Model):
+async def find_schedule_by_strategy_1(request: Request):
+        # data: Strategy1Model):
+    request = await request.json()
+    data = Strategy1Model(**request)
     planner = Strategy1Planner(data)
     return {'result': planner.get_schedule()}
 

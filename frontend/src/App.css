@@ -9,7 +9,7 @@ div.App {
   display: flex;
   overflow: hidden;
   color: #000000;
-  background-color: lightcyan;
+  background-color: #e1fce1;
   font-size: 13px;
   line-height: 1;
 }
@@ -127,6 +127,10 @@ h1 {
 
 .item.selected {
   background-color: red;
+}
+
+.item.schedule {
+  background-color: orange;
 }
 
 input {

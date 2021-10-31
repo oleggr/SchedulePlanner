@@ -25,17 +25,27 @@ const Grid = ({
   };
 
   const sendToBackend = (e) => {
-    console.log("send data to host:")
-    console.log(field_arr)
+    // TODO: Add toast notification
 
     var body = {
       "field": field_arr,
-      "end_x": inputCells,
+      "end_x": parseInt(inputCells) - 1, // send index here (max number - 1) 
     };
     
     axios.post('http://127.0.0.1:8000/api/strategy/1', body)
       .then(function (response) {
-        console.log(response);
+        var schedule = response.data['result'];
+        let a = JSON.parse(JSON.stringify(field_arr));
+
+        schedule.map((schedule_row, schedule_row_index) => (
+            schedule_row.map((schedule_cell, schedule_cell_index) => {
+              if(schedule_cell === 1) {
+                a[schedule_row_index][schedule_cell_index] = 2; 
+              }
+            })
+        ))
+
+        setField(a);
       })
       .catch(function (error) {
         console.log(error);
@@ -51,8 +61,10 @@ const Grid = ({
         {field_arr.map((field_row, index_row) => (
           <ul className="row" key={index_row}>
             {field_row.map((cell, index_cell) => {
-              if(cell) {
+              if(cell === 1) {
                 return <li key={index_cell} className="item selected" onClick={(e) => handleClick(e, index_row, index_cell)}/>
+              } if(cell === 2) {
+                return <li key={index_cell} className="item schedule" onClick={(e) => handleClick(e, index_row, index_cell)}/>
               } else {
                 return <li key={index_cell} className="item" onClick={(e) => handleClick(e, index_row, index_cell)}/>
               }
