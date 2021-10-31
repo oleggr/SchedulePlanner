@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Grid = ({
   grid,
   inputCells,
@@ -24,6 +27,8 @@ const Grid = ({
     setField(a);
   };
 
+  
+
   const sendToBackend = (e) => {
     // TODO: Add toast notification
 
@@ -31,9 +36,15 @@ const Grid = ({
       "field": field_arr,
       "end_x": parseInt(inputCells) - 1, // send index here (max number - 1) 
     };
-    
+
     axios.post('http://127.0.0.1:8000/api/strategy/1', body)
       .then(function (response) {
+        toast.success("Request sended", {
+          autoClose: 2000,
+          hideProgressBar: true,
+          pauseOnFocusLoss: false
+        });        
+
         var schedule = response.data['result'];
         let a = JSON.parse(JSON.stringify(field_arr));
 
@@ -48,6 +59,11 @@ const Grid = ({
         setField(a);
       })
       .catch(function (error) {
+        toast.error("Request failed", {
+          autoClose: 2500,
+          hideProgressBar: true,
+          pauseOnFocusLoss: false
+        });
         console.log(error);
       });
   }
@@ -122,6 +138,11 @@ const Grid = ({
             target="_blank" 
             rel="noreferrer"
             >Github</a>
+
+
+          <ToastContainer 
+            position="bottom-right"
+            />
         </div>
       </div>
 
