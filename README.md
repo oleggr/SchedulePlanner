@@ -1,7 +1,7 @@
 # SchedulePlanner
 Schedule planner based on Lee algorithm.
 
-[![Tests](https://github.com/oleggr/SchedulePlanner/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/oleggr/SchedulePlanner/actions/workflows/main.yml)
+[![Tests](https://github.com/oleggr/SchedulePlanner/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/oleggr/SchedulePlanner/actions/workflows/tests.yml)
 
 ### Content
 
