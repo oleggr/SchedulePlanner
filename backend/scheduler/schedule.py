@@ -23,6 +23,9 @@ class Strategy1Planner(BasicPlanner):
         self.field = strategy_data.field
         self.end_x = strategy_data.end_x
 
+    def __repr__(self):
+        return f'<Strategy1Planner> field: {self.field}'
+
     def get_schedule(self):
         best_schedule_rate = len(self.field[0]) * len(self.field)
         best_schedule = []
