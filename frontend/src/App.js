@@ -4,11 +4,15 @@ import Grid from "./components/grid";
 
 function App() {
   const queryParams = new URLSearchParams(window.location.search);
-  
-  var cells_num = queryParams.get('cells');
+
+  let cells_num = queryParams.get('cells');
   cells_num = cells_num ? parseInt(cells_num) : 5;
-  var rows_num = queryParams.get('rows');
+  cells_num = cells_num < 2 ? 2 : cells_num;
+
+  let rows_num = queryParams.get('rows');
   rows_num = rows_num ? parseInt(rows_num) : 5;
+  rows_num = rows_num < 2 ? 2 : rows_num;
+
 
   const gridBase = {
     cells: cells_num,

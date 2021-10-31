@@ -14,6 +14,9 @@ const Grid = ({
   const field = new Array(grid.rows).fill(new Array(grid.cells).fill(0));
   const [field_arr, setField] = useState(field);
 
+  // TODO: add loading field from the file
+  // TODO: add hold and move behavior for the grid
+
   const handleClick = (e, index_row, index_cell) => {
     let a = JSON.parse(JSON.stringify(field_arr));
 
@@ -27,11 +30,7 @@ const Grid = ({
     setField(a);
   };
 
-  
-
   const sendToBackend = (e) => {
-    // TODO: Add toast notification
-
     var body = {
       "field": field_arr,
       "end_x": parseInt(inputCells) - 1, // send index here (max number - 1) 
@@ -79,7 +78,8 @@ const Grid = ({
           <ul className="row" key={index_row}>
             {field_row.map((cell, index_cell) => {
               if(index_cell === 0) {
-                li_text = "CPU" + index_row
+                let index_to_show = inputRows - parseInt(index_row)
+                li_text = "CPU" + index_to_show
               } else {
                 li_text = ""
               }
