@@ -1,6 +1,25 @@
 # SchedulePlanner
 Schedule planner based on Lee algorithm.
 
+### Content
+
+- [Summary](#summary)
+- [Usage](#usage)
+- [Tests](#tests)
+- [Routes](#routes)
+- [Contacts](#contacts)
+
+### Summary
+
+App for finding CPU resources for the task. 
+Time discretization and cpu count available for customization.
+Schedule finder separated from the client app and working on an external processing resource. 
+Backend processing power can be increased by vertical and horizontal directions if needed. 
+Instructions to do so will be added soon.   
+
+![image before schedule find](./img/img1.png)
+
+
 ### Usage
 
 Install requirements.
@@ -14,9 +33,10 @@ cd backend
 make local
 ```
 
-Run client. Currently supported only CLI command.
+Run client. Currently available [web application](https://github.com/oleggr/SchedulePlanner/tree/main/frontend) and CLI script. 
 ```bash
-# Use --help option to see full options
+# Script usage
+# Use --help option to see usage hints
 pyhton3 query_runner.py strategy1
 ```
 
@@ -40,3 +60,9 @@ POST   /api/strategy/2   Plan schedule by Strategy 2
 POST   /api/strategy/3   Plan schedule by Strategy 3
                             - Currently not implemented
 ```
+
+### Contacts
+
+- Telegram - [@grit4in](https://t.me/grit4in)
+
+[Up](#scheduleplanner)
