@@ -134,9 +134,13 @@ h1 {
 }
 
 input {
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 label {
-  margin-right: 15px;
+  align-content: stretch;
+}
+
+.inputblock {
+  margin: 20px auto;
 }

@@ -76,41 +76,45 @@ const Grid = ({
       <div className="settings">
         <h1>SchedulePlanner</h1>
 
-        <div>
-          <label htmlFor="cells">Time range:</label>
-          <input
-            type="text"
-            placeholder="Time range"
-            id="cells"
-            value={inputCells}
-            onChange={(e) => setCells(e.target.value)}
-          />
+        <div class="inputblock">
+          <div>
+            <label htmlFor="cells">Time range:</label>
+            <input
+              type="text"
+              placeholder="Time range"
+              id="cells"
+              value={inputCells}
+              onChange={(e) => setCells(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="rows">CPU count:</label>
+            <input
+              type="text"
+              placeholder="CPU count"
+              id="rows"
+              value={inputRows}
+              onChange={(e) => setRows(e.target.value)}
+            />
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="rows">CPU count:</label>
-          <input
-            type="text"
-            placeholder="CPU count"
-            id="rows"
-            value={inputRows}
-            onChange={(e) => setRows(e.target.value)}
-          />
+        <div class="inputblock">
+          <a 
+            className="btn" 
+            href={changeGridLink}
+            >Change Grid</a>
+
+          <button onClick={sendToBackend}>Find Schedule</button>
+          
+          <a 
+            className="btn" 
+            href='https://github.com/oleggr/SchedulePlanner' 
+            target="_blank" 
+            rel="noreferrer"
+            >Github</a>
         </div>
-
-        <a 
-          className="btn" 
-          href={changeGridLink}
-          >Change Grid</a>
-
-        <button onClick={sendToBackend}>Find Schedule</button>
-        
-        <a 
-          className="btn" 
-          href='https://github.com/oleggr/SchedulePlanner' 
-          target="_blank" 
-          rel="noreferrer"
-          >Github</a>
       </div>
 
     </div>
