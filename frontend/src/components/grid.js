@@ -53,6 +53,7 @@ const Grid = ({
   }
 
   var changeGridLink = "http://localhost:3000/?cells=" + inputCells + "&rows=" + inputRows 
+  var li_text = ""
 
   return (
   
@@ -61,22 +62,29 @@ const Grid = ({
         {field_arr.map((field_row, index_row) => (
           <ul className="row" key={index_row}>
             {field_row.map((cell, index_cell) => {
-              if(cell === 1) {
-                return <li key={index_cell} className="item selected" onClick={(e) => handleClick(e, index_row, index_cell)}/>
-              } if(cell === 2) {
-                return <li key={index_cell} className="item schedule" onClick={(e) => handleClick(e, index_row, index_cell)}/>
+              if(index_cell === 0) {
+                li_text = "CPU" + index_row
               } else {
-                return <li key={index_cell} className="item" onClick={(e) => handleClick(e, index_row, index_cell)}/>
+                li_text = ""
+              }
+
+              if(cell === 1) {
+                return <li key={index_cell} className="item selected" onClick={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
+              } if(cell === 2) {
+                return <li key={index_cell} className="item schedule" onClick={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
+              } else {
+                return <li key={index_cell} className="item" onClick={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
               }
             })}
           </ul>
         ))}
+        <div>time</div>
       </div>
 
       <div className="settings">
         <h1>SchedulePlanner</h1>
 
-        <div class="inputblock">
+        <div className="inputblock">
           <div>
             <label htmlFor="cells">Time range:</label>
             <input
@@ -100,7 +108,7 @@ const Grid = ({
           </div>
         </div>
 
-        <div class="inputblock">
+        <div className="inputblock">
           <a 
             className="btn" 
             href={changeGridLink}
