@@ -48,6 +48,7 @@ const Grid = ({
         let a = JSON.parse(JSON.stringify(field_arr));
 
         schedule.map((schedule_row, schedule_row_index) => (
+            // eslint-disable-next-line array-callback-return
             schedule_row.map((schedule_cell, schedule_cell_index) => {
               if(schedule_cell === 1) {
                 a[schedule_row_index][schedule_cell_index] = 2; 
