@@ -77,27 +77,21 @@ const Grid = ({
         <h1>SchedulePlanner</h1>
 
         <div>
-          <label htmlFor="cells">Define cells in the row</label>
-        </div>
-
-        <div>
+          <label htmlFor="cells">Time range:</label>
           <input
             type="text"
-            placeholder="Define cells in the row"
+            placeholder="Time range"
             id="cells"
             value={inputCells}
             onChange={(e) => setCells(e.target.value)}
           />
         </div>
 
-
         <div>
-          <label htmlFor="rows">Define rows</label>
-        </div>
-        <div>
+          <label htmlFor="rows">CPU count:</label>
           <input
             type="text"
-            placeholder="Define rows"
+            placeholder="CPU count"
             id="rows"
             value={inputRows}
             onChange={(e) => setRows(e.target.value)}
