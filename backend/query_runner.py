@@ -4,7 +4,7 @@ import json
 import requests
 from argparse import ArgumentParser
 
-from pathfinding.core.grid import Grid
+from scheduler.utils import print_arr
 
 
 API_HOST = 'http://localhost:8000/api'
@@ -25,8 +25,10 @@ def callback_strategy_1(arguments):
     }
     r = requests.post(API_HOST + STRATEGY_1_PATH, json=data)
     res = r.json()
-    grid = Grid(matrix=res['result'])
-    print(grid.grid_str())
+    print('Field is:')
+    print_arr(data['field'])
+    print('Schedule:')
+    print_arr(res['result'])
 
 
 def callback_strategy_2(arguments):

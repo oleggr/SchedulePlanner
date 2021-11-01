@@ -1,5 +1,6 @@
 import pytest
 
+from scheduler.models import Strategy1Model
 from scheduler.schedule import Strategy1Planner
 
 
@@ -73,9 +74,8 @@ strategy1_correct_dataset = [
 ]
 
 
-@pytest.mark.skip
 @pytest.mark.parametrize("data, expected", strategy1_correct_dataset)
 def test_strategy1_planner_working_correctly(data, expected):
-    planner = Strategy1Planner(data)
+    planner = Strategy1Planner(Strategy1Model(**data))
     actual = planner.get_schedule()
     assert expected == actual
