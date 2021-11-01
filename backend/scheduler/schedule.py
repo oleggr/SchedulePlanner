@@ -13,11 +13,11 @@ class BasicPlanner:
 class Strategy1Planner(BasicPlanner):
 
     field: List[List[int]]
-    completion_time: int
+    task_workload: int
 
     def __init__(self, strategy_data: Strategy1Model):
         self.field = strategy_data.field
-        self.completion_time = strategy_data.completion_time
+        self.task_workload = strategy_data.task_workload
 
     def __repr__(self):
         return f'<Strategy1Planner> field: {self.field}'

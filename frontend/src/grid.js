@@ -33,7 +33,7 @@ const Grid = ({
   const sendToBackend = (e) => {
     var body = {
       "field": field_arr,
-      "completion_time": parseInt(inputCells) - 1, // send index here (max number - 1)
+      "task_workload": parseInt(inputCells) - 1, // send index here (max number - 1)
     };
 
     axios.post('http://127.0.0.1:8000/api/strategy/1', body)

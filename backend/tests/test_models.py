@@ -13,7 +13,7 @@ strategy1_correct_dataset = [
                 [0, 1, 1, 1, 0, 0],
                 [0, 0, 1, 0, 0, 0],
             ],
-            'completion_time': 5
+            'task_workload': 5
         },
     ),
     pytest.param(
@@ -23,7 +23,7 @@ strategy1_correct_dataset = [
                 [0, 0, 0],
                 [0, 1, 1],
             ],
-            'completion_time': 2
+            'task_workload': 2
         },
     )
 ]
@@ -37,7 +37,7 @@ strategy1_incorrect_dataset = [
                 [0, 1, 1, 1, 0, 0],
                 [0, 0, 1, 0, 0, 0],
             ],
-            'completion_time': 10
+            'task_workload': 10
         },
         id='end_x bigger then right border'
     ),
@@ -48,7 +48,7 @@ strategy1_incorrect_dataset = [
                 [0, 'a', 0, 0],
                 [0, 1, 1, 1],
             ],
-            'completion_time': 3
+            'task_workload': 3
         },
         id='one of numbers is string ',
     ),

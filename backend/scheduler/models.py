@@ -4,9 +4,9 @@ from pydantic import BaseModel, validator
 
 class Strategy1Model(BaseModel):
     field: List[List[int]]
-    completion_time: int
+    task_workload: int
 
-    @validator('completion_time')
+    @validator('task_workload')
     def check_start(cls, v, values, **kwargs):
         if 'field' in values and not (0 <= v < len(values['field'][0])):
             raise ValueError(

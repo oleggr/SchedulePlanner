@@ -11,7 +11,7 @@ strategy1_input = [
                 [0, 1, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 0],
             ],
-            'completion_time': 5
+            'task_workload': 5
         },
         id='Test return structure'
     )

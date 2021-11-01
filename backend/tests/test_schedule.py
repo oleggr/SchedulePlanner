@@ -12,7 +12,7 @@ strategy1_correct_dataset = [
                 [0, 1, 1, 1, 0, 0],
                 [0, 0, 1, 0, 0, 0],
             ],
-            'completion_time': 5
+            'task_workload': 5
         },
         [
             [0, 0, 0, 0, 0, 0],
@@ -29,7 +29,7 @@ strategy1_correct_dataset = [
                 [0, 0, 0],
                 [0, 1, 1],
             ],
-            'completion_time': 2
+            'task_workload': 2
         },
         [
             [0, 0, 0],
@@ -45,7 +45,7 @@ strategy1_correct_dataset = [
                 [0, 0, 1, 1],
                 [0, 1, 1, 0],
             ],
-            'completion_time': 2
+            'task_workload': 2
         },
         [
             [0, 0, 1, 1],
