@@ -1,5 +1,6 @@
+import hashlib
 from starlette import status
-from fastapi import APIRouter, Request, status, HTTPException
+from fastapi import APIRouter, Request, HTTPException
 
 from scheduler.models import Strategy1Model, Strategy1ResponseModel
 from scheduler.schedule import Strategy1Planner
@@ -27,6 +28,9 @@ async def find_schedule_by_strategy_1(request: Request):
         # data: Strategy1Model):
     request = await request.json()
     data = Strategy1Model(**request)
+
+    field_hash = hashlib.sha224(str(data.field).encode()).hexdigest()
+
     planner = Strategy1Planner(data)
     return {'result': planner.get_schedule()}
 

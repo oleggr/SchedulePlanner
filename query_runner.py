@@ -9,6 +9,7 @@ from pathfinding.core.grid import Grid
 
 API_HOST = 'http://localhost:8000/api'
 STRATEGY_1_PATH = '/strategy/1'
+STRATEGY_2_PATH = '/strategy/2'
 
 
 def callback_strategy_1(arguments):
