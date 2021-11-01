@@ -28,10 +28,10 @@ async def hello():
     response_model=Strategy1ResponseModel
 )
 async def find_schedule_by_strategy_1(request: Request):
-        # data: Strategy1Model):
     request = await request.json()
     data = Strategy1Model(**request)
 
+    # TODO add hashing of useful params and move it to strategy planner
     field_hash = hashlib.sha224(str(data.field).encode()).hexdigest()
     StorageFactory.get_storage().put(field_hash, {'test': random()})
 
