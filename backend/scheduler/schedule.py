@@ -3,6 +3,8 @@ from typing import List
 
 from scheduler.models import Strategy1Model
 
+from scheduler.utils import print_arr, copy_2d_array_structure, get_min
+
 
 class BasicPlanner:
     @abstractmethod
@@ -22,18 +24,35 @@ class Strategy1Planner(BasicPlanner):
         return f'<Strategy1Planner> field: {self.field}'
 
     def get_schedule(self):
-        best_schedule_rate = len(self.field[0]) * len(self.field)
+        # best_schedule_rate = len(self.field[0]) * len(self.field)
+        _cpus = len(self.field[0])
+        _time = len(self.field)
         best_schedule = []
 
-        for i in range(len(self.field)):
-            for j in range(len(self.field[i]) - self.completion_time):
-                start_index = (i, j)
-                end_index = (i, j + self.completion_time)
-                curr_schedule, curr_rate = self.find_path(start_index, end_index)
-                if curr_rate < best_schedule_rate:
-                    best_schedule = curr_schedule
+        heat_map = self.build_heat_map()
+        print_arr(heat_map)
 
         return best_schedule
+
+    def build_heat_map(self):
+        _cpus = len(self.field)
+        _time = len(self.field[0])
+        heat_map = copy_2d_array_structure(self.field)
+        prev_min = 0
+
+        for t in range(_time):
+            curr_heat_by_t = []
+            for c in range(_cpus):
+                if t == 0 and self.field[c][t] == 0:
+                    heat_map[c][t] = 1
+                elif self.field[c][t] == self.field[c][t - 1] == 0:
+                    heat_map[c][t] = heat_map[c][t - 1] + 1
+                elif self.field[c][t] == 0 and self.field[c][t - 1] == 1:
+                    heat_map[c][t] = prev_min + 1
+                curr_heat_by_t.append(heat_map[c][t])
+            prev_min = get_min(curr_heat_by_t)
+
+        return heat_map
 
     def find_path(self, start, end):
         schedule, curr_rate = [
