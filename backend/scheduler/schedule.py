@@ -2,8 +2,7 @@ from abc import abstractmethod
 from typing import List
 
 from scheduler.models import Strategy1Model
-
-from scheduler.utils import print_arr, copy_2d_array_structure, get_min
+from scheduler.utils import print_arr, copy_2d_array, get_min
 
 
 class BasicPlanner:
@@ -27,7 +26,7 @@ class Strategy1Planner(BasicPlanner):
         # best_schedule_rate = len(self.field[0]) * len(self.field)
         _cpus = len(self.field[0])
         _time = len(self.field)
-        best_schedule = []
+        best_schedule = [[0]]
 
         heat_map = self.build_heat_map()
         print_arr(heat_map)
@@ -37,7 +36,7 @@ class Strategy1Planner(BasicPlanner):
     def build_heat_map(self):
         _cpus = len(self.field)
         _time = len(self.field[0])
-        heat_map = copy_2d_array_structure(self.field)
+        heat_map = copy_2d_array(self.field, only_structure=True)
         prev_min = 0
 
         for t in range(_time):
