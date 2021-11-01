@@ -31,6 +31,7 @@ def callback_strategy_1(arguments):
 
 def callback_strategy_2(arguments):
     print('strategy2 callback')
+    requests.post(API_HOST + STRATEGY_2_PATH)
 
 
 def callback_strategy_3(arguments):

@@ -1,9 +1,12 @@
 import hashlib
+from random import random
+
 from starlette import status
 from fastapi import APIRouter, Request, HTTPException
 
 from scheduler.models import Strategy1Model, Strategy1ResponseModel
 from scheduler.schedule import Strategy1Planner
+from scheduler.storage.storage_factory import StorageFactory
 
 
 router = APIRouter()
@@ -30,6 +33,7 @@ async def find_schedule_by_strategy_1(request: Request):
     data = Strategy1Model(**request)
 
     field_hash = hashlib.sha224(str(data.field).encode()).hexdigest()
+    StorageFactory.get_storage().put(field_hash, {'test': random()})
 
     planner = Strategy1Planner(data)
     return {'result': planner.get_schedule()}
