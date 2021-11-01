@@ -6,12 +6,12 @@ def print_arr(arr):
         print()
 
 
-def copy_2d_array(arr, only_structure=False):
+def copy_2d_array(arr, only_structure=False, default_value=0):
     new_arr = []
     for i in range(len(arr)):
         new_arr.append([])
         for elem in arr[i]:
-            val = None if only_structure else elem
+            val = default_value if only_structure else elem
             new_arr[i].append(val)
     return new_arr
 

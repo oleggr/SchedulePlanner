@@ -20,14 +20,28 @@ def test_copy_2d_array(array, expected):
 @pytest.mark.parametrize(
     "array, expected",
     [
+        [ [[1, 2, 3, 4]], [[0, 0, 0, 0]] ],
+        [ [[5, 6], [1]], [[0, 0], [0]] ],
+        [ [[None, None], [0, 0]], [[0, 0], [0, 0]] ],
+        [ [[0, 0, 0], [0, 0, 0, 0]], [[0, 0, 0], [0, 0, 0, 0]] ]
+    ]
+)
+def test_copy_2d_array_structure_as_zero(array, expected):
+    actual = copy_2d_array(array, only_structure=True)
+    assert expected == actual
+
+
+@pytest.mark.parametrize(
+    "array, expected",
+    [
         [ [[1, 2, 3, 4]], [[None, None, None, None]] ],
         [ [[5, 6], [1]], [[None, None], [None]] ],
         [ [[None, None], [None, None]], [[None, None], [None, None]] ],
         [ [[0, 0, 0], [0, 0, 0, 0]], [[None, None, None], [None, None, None, None]] ]
     ]
 )
-def test_copy_2d_array_structure(array, expected):
-    actual = copy_2d_array(array, only_structure=True)
+def test_copy_2d_array_structure_as_none(array, expected):
+    actual = copy_2d_array(array, only_structure=True, default_value=None)
     assert expected == actual
 
 

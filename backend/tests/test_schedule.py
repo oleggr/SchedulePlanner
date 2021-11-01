@@ -20,7 +20,7 @@ strategy1_correct_dataset = [
             [0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0],
         ],
-        id='Test 1 straight schedule'
+        id='Straight schedule 1'
     ),
     pytest.param(
         {
@@ -36,7 +36,7 @@ strategy1_correct_dataset = [
             [1, 1, 1],
             [0, 0, 0],
         ],
-        id='Test 2 straight schedule'
+        id='Straight schedule 2'
     ),
     pytest.param(
         {
@@ -52,7 +52,23 @@ strategy1_correct_dataset = [
             [1, 1, 0, 0],
             [0, 0, 0, 0],
         ],
-        id='Test not straight schedule'
+        id='One migration in the middle'
+    ),
+    pytest.param(
+        {
+            'field': [
+                [1, 1, 0, 0],
+                [1, 0, 1, 1],
+                [0, 1, 1, 0],
+            ],
+            'task_workload': 2
+        },
+        [
+            [0, 0, 1, 1],
+            [0, 1, 0, 0],
+            [1, 0, 0, 0],
+        ],
+        id='Second step is migration'
     )
 ]
 
