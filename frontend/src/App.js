@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './App.css';
-import Grid from "./components/grid";
+import Grid from "./grid";
 
 function App() {
   const queryParams = new URLSearchParams(window.location.search);

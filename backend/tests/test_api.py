@@ -1,8 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from scheduler.models import Strategy1ResponseModel
-
 
 strategy1_input = [
     pytest.param(
@@ -13,14 +11,8 @@ strategy1_input = [
                 [0, 1, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 0],
             ],
-            'end_x': 5
+            'completion_time': 5
         },
-        # Strategy1ResponseModel(result=[
-        #     [0, 0, 0, 0, 0, 0],
-        #     [1, 1, 0, 0, 0, 0],
-        #     [0, 0, 1, 1, 1, 1],
-        #     [0, 0, 0, 0, 0, 0]
-        # ]),
         id='Test return structure'
     )
 ]
