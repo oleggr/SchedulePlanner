@@ -21,7 +21,7 @@ def callback_strategy_1(arguments):
             [0, 1, 0, 0, 0, 0],
             [0, 1, 0, 0, 0, 0],
         ],
-        'end_x': 5
+        'completion_time': 5
     }
     r = requests.post(API_HOST + STRATEGY_1_PATH, json=data)
     res = r.json()
