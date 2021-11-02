@@ -103,7 +103,7 @@ div.map {
 div.settings {
   justify-self: flex-start;
   width: 30%;
-  padding-right: 10px;
+  padding-right: 20px;
   padding-left: 10px;
   padding-top: 40px;
   background: linear-gradient(-45deg, #ffdcd1, #ffd1e3, #c2efff, #ccfff3);
@@ -161,4 +161,14 @@ label {
 
 .inputblock {
   margin: 20px auto;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

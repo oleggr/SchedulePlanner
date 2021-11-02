@@ -81,8 +81,7 @@ const Grid = ({
   var li_text = ""
 
   return (
-  
-    <div className="main">
+    <div className="main noselect">
       <div className="map">
         {field_arr.map((field_row, index_row) => (
           <ul className="row" key={index_row}>
@@ -95,11 +94,11 @@ const Grid = ({
               }
 
               if(cell === 1) {
-                return <li key={index_cell} className="item selected" onClick={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
+                return <li key={index_cell} className="item selected" onMouseDown={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
               } if(cell === 2) {
-                return <li key={index_cell} className="item schedule" onClick={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
+                return <li key={index_cell} className="item schedule" onMouseDown={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
               } else {
-                return <li key={index_cell} className="item" onClick={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
+                return <li key={index_cell} className="item" onMouseDown={(e) => handleClick(e, index_row, index_cell)}>{li_text}</li>
               }
             })}
           </ul>
