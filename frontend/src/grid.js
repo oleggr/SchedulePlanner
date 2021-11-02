@@ -31,7 +31,16 @@ const Grid = ({
   };
 
   const sendToBackend = (e) => {
-    var body = {
+    field_arr.map((schedule_row, schedule_row_index) => (
+        // eslint-disable-next-line array-callback-return
+        schedule_row.map((schedule_cell, schedule_cell_index) => {
+          if(schedule_cell === 2) {
+            field_arr[schedule_row_index][schedule_cell_index] = 0;
+          }
+        })
+    ))
+
+    const body = {
       "field": field_arr,
       "task_workload": parseInt(inputCells) - 1, // send index here (max number - 1)
     };
@@ -42,7 +51,7 @@ const Grid = ({
           autoClose: 2000,
           hideProgressBar: true,
           pauseOnFocusLoss: false
-        });        
+        });
 
         var schedule = response.data['result'];
         let a = JSON.parse(JSON.stringify(field_arr));
@@ -103,7 +112,7 @@ const Grid = ({
 
         <div className="inputblock">
           <div>
-            <label htmlFor="cells">Time range:</label>
+            <label htmlFor="cells">Time range </label>
             <input
               type="text"
               placeholder="Time range"
@@ -114,7 +123,7 @@ const Grid = ({
           </div>
 
           <div>
-            <label htmlFor="rows">CPU count:</label>
+            <label htmlFor="rows">CPU count </label>
             <input
               type="text"
               placeholder="CPU count"
