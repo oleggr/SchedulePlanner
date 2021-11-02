@@ -36,7 +36,6 @@ button:hover {
   color: white;
 }
 
-
 .btn {
   font-size: 14px;
   color: black;
@@ -59,13 +58,13 @@ button:hover {
 }
 
 input {
-  width: 246px;
+  width: 200px;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 10px;
   color: black;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid black;
-  cursor: pointer;
+  cursor: text;
 }
 
 input::placeholder {
@@ -90,6 +89,9 @@ div.main {
   width: 100%;
   flex-direction: row;
   justify-content: flex-end;
+  background: linear-gradient(-45deg, #dfedeb, #edebdf, #eae4f2, #ebf0ef);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
 }
 
 div.map {
@@ -101,8 +103,24 @@ div.map {
 div.settings {
   justify-self: flex-start;
   width: 30%;
-  padding-right: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
   padding-top: 40px;
+  background: linear-gradient(-45deg, #ffdcd1, #ffd1e3, #c2efff, #ccfff3);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 h1 {
