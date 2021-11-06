@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  backend:
+    container_name: backend
+    build: backend
+    ports:
+      - "80:8000"
+    restart: always
+    networks:
+      - nir-network
+
+volumes:
+  nir-storage:
+
+networks:
+  nir-network:
+    name: nir-network
+    driver: bridge
