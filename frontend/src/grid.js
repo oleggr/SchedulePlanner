@@ -45,7 +45,7 @@ const Grid = ({
       "task_workload": parseInt(inputCells) - 1, // send index here (max number - 1)
     };
 
-    axios.post('http://127.0.0.1:8000/api/strategy/1', body)
+    axios.post('http://coolpoisk.ru:8000/api/strategy/1', body)
       .then(function (response) {
         toast.success("Request sended", {
           autoClose: 2000,
@@ -77,7 +77,7 @@ const Grid = ({
       });
   }
 
-  var changeGridLink = "http://localhost:3000/?cells=" + inputCells + "&rows=" + inputRows 
+  var changeGridLink = "http://127.0.0.1/?cells=" + inputCells + "&rows=" + inputRows
   var li_text = ""
 
   return (
