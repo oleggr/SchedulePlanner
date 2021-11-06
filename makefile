@@ -12,3 +12,6 @@ run:
 
 down:
 	docker-compose down
+
+ssh:
+	ssh oleggr@coolpoisk.ru

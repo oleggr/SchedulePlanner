@@ -1,0 +1,13 @@
+---
+
+- name: Gathering facts
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+- name: Install nginx
+  hosts: api
+  become: yes
+  gather_facts: no
+  roles:
+    - nginx
