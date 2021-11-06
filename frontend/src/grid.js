@@ -77,7 +77,7 @@ const Grid = ({
       });
   }
 
-  var changeGridLink = "http://127.0.0.1/?cells=" + inputCells + "&rows=" + inputRows
+  var changeGridLink = "http://coolpoisk.ru/?cells=" + inputCells + "&rows=" + inputRows
   var li_text = ""
 
   return (
