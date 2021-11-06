@@ -45,7 +45,7 @@ const Grid = ({
       "task_workload": parseInt(inputCells) - 1, // send index here (max number - 1)
     };
 
-    axios.post('http://coolpoisk.ru:8000/api/strategy/1', body)
+    axios.post('http://coolpoisk.ru/api/strategy/1', body)
       .then(function (response) {
         toast.success("Request sended", {
           autoClose: 2000,
