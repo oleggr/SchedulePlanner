@@ -1,4 +1,5 @@
 import pytest
+from scheduler.config import auth_token
 from fastapi.testclient import TestClient
 
 
@@ -26,7 +27,11 @@ def test_hello_endpoint(client: TestClient):
 
 @pytest.mark.parametrize("data", strategy1_input)
 def test_strategy_1_endpoint(client: TestClient, data):
-    response = client.post('/api/strategy/1', json=data)
+    response = client.post(
+        '/api/strategy/1',
+        headers={"token": auth_token},
+        json=data,
+    )
     assert response.status_code == 200
     json = response.json()
     assert 'result' in json

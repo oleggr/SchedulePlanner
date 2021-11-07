@@ -4,12 +4,25 @@ from random import random
 from starlette import status
 from fastapi import APIRouter, Request, HTTPException
 
-from scheduler.models import Strategy1Model, Strategy1ResponseModel
+from scheduler.config import auth_token
 from scheduler.schedule import Strategy1Planner
 from scheduler.storage.storage_factory import StorageFactory
+from scheduler.models import Strategy1Model, Strategy1ResponseModel
 
 
 router = APIRouter()
+
+
+async def validate_request(request: Request):
+    try:
+        user_token = request.headers['token']
+        if not auth_token == user_token:
+            raise Exception
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Token incorrect: {e}",
+        )
 
 
 @router.get(
@@ -28,6 +41,8 @@ async def hello():
     response_model=Strategy1ResponseModel
 )
 async def find_schedule_by_strategy_1(request: Request):
+    await validate_request(request)
+
     request = await request.json()
     data = Strategy1Model(**request)
 
