@@ -1,3 +1,6 @@
+import csv
+import time
+
 
 def print_arr(arr):
     for line in arr:
@@ -26,3 +29,21 @@ def get_min(arr):
             min_v = elem
 
     return min_v
+
+
+def log_workload(
+    cpus: int,
+    time_range: int,
+    field: list,
+    best_schedule: list
+):
+    logfile = 'log.csv'
+    with open(logfile, 'a+') as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            int(time.time()),
+            cpus,
+            time_range,
+            field,
+            best_schedule,
+        ])

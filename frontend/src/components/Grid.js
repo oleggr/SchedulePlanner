@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from "universal-cookie";
 
 const Grid = ({
   grid,
@@ -11,6 +12,8 @@ const Grid = ({
   inputRows,
   setRows,
 }) => {
+  const cookies = new Cookies();
+  let client_token = cookies.get('auth');
   const field = new Array(grid.rows).fill(new Array(grid.cells).fill(0));
   const [field_arr, setField] = useState(field);
 
@@ -45,7 +48,7 @@ const Grid = ({
       "task_workload": parseInt(inputCells) - 1, // send index here (max number - 1)
     };
 
-    axios.post('http://coolpoisk.ru/api/strategy/1', body)
+    axios.post('http://coolpoisk.ru/api/strategy/1', body, {headers: {'token': client_token}})
       .then(function (response) {
         toast.success("Request sended", {
           autoClose: 2000,

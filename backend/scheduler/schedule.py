@@ -2,7 +2,7 @@ from abc import abstractmethod
 from typing import List
 
 from scheduler.models import Strategy1Model
-from scheduler.utils import print_arr, copy_2d_array, get_min
+from scheduler.utils import print_arr, copy_2d_array, get_min, log_workload
 
 
 class BasicPlanner:
@@ -45,6 +45,13 @@ class Strategy1Planner(BasicPlanner):
             if rate < best_rate:
                 best_rate = rate
                 self.best_schedule = schedule
+
+        log_workload(
+            self._cpus,
+            self._time,
+            self.field,
+            self.best_schedule
+        )
 
         return self.best_schedule
 
