@@ -48,7 +48,7 @@ const Grid = ({
       "task_workload": parseInt(inputCells) - 1, // send index here (max number - 1)
     };
 
-    axios.post('http://coolpoisk.ru/api/strategy/1', body, {headers: {'token': client_token}})
+    axios.post('https://coolpoisk.ru/api/strategy/1', body, {headers: {'token': client_token}})
       .then(function (response) {
         toast.success("Request sended", {
           autoClose: 2000,
@@ -80,7 +80,7 @@ const Grid = ({
       });
   }
 
-  var changeGridLink = "http://coolpoisk.ru/?cells=" + inputCells + "&rows=" + inputRows
+  var changeGridLink = "https://coolpoisk.ru/?cells=" + inputCells + "&rows=" + inputRows
   var li_text = ""
 
   return (
