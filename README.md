@@ -25,6 +25,25 @@ Instructions to do so will be added soon.
 
 ### Usage
 
+#### Docker
+
+Run frontend and backend services: 
+```
+make docker
+```
+
+Stop services: 
+```
+make down
+```
+
+In case of application deploy, you can use ansible for setting up nginx.
+1. Update server name in nginx config: `deploy/roles/nginx/templates/site.conf.j2`
+2. Update hosts.ini file: `deploy/hosts.ini`
+3. Run deploy command from the `deploy` folder: `make dododo`
+
+#### Manual
+
 Install requirements.
 ```bash
 python3 -m pip install -r requirements.txt
@@ -36,7 +55,8 @@ cd backend
 make local
 ```
 
-Run client. Currently available [web application](https://github.com/oleggr/SchedulePlanner/tree/main/frontend) and CLI script. 
+Test app by sending requests from postman or using client app. 
+Currently available [web application](https://github.com/oleggr/SchedulePlanner/tree/main/frontend) and CLI script. 
 ```bash
 # Script usage
 # Use --help option to see usage hints
