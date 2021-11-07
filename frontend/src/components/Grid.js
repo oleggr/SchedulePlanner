@@ -113,6 +113,7 @@ const Grid = ({
           <div>
             <label htmlFor="cells">Time range </label>
             <input
+              className="settings"
               type="text"
               placeholder="Time range"
               id="cells"
@@ -124,6 +125,7 @@ const Grid = ({
           <div>
             <label htmlFor="rows">CPU count </label>
             <input
+              className="settings"
               type="text"
               placeholder="CPU count"
               id="rows"
