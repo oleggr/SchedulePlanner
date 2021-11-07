@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import './App.css';
 import Grid from "./components/Grid";
 import Auth from "./components/Auth";
+import {expected_token} from "./Config";
 
 import Cookies from 'universal-cookie';
 
 
 function App() {
   const cookies = new Cookies();
-  let expected_token = 'xxx';
   let client_token = cookies.get('auth');
 
   const queryParams = new URLSearchParams(window.location.search);

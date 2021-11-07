@@ -1,0 +1,18 @@
+div.login {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-self: flex-start;
+  align-self: center;
+  justify-content: center;
+}
+
+input.tokenfiled {
+  text-align: center;
+  font-size: 16px;
+  line-height: 10px;
+  color: black;
+  padding: 5px;
+  border: 1px solid black;
+  cursor: text;
+}
